@@ -628,9 +628,16 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   line-height: 2.1;
   color: var(--color-ink-soft);
   letter-spacing: 0.06em;
-  text-align: justify;
+  text-align: center;
 }
 .about-body p + p { margin-top: 1.2em; }
+/* 改行出し分けユーティリティ（PCのみ / SPのみで改行） */
+.pc-only { display: inline; }
+.sp-only { display: none; }
+@media (max-width: 768px) {
+  .pc-only { display: none; }
+  .sp-only { display: inline; }
+}
 
 /* =========================================================
    ABOUT - スライドショー (カタレル "語れる" ポイント)
@@ -952,6 +959,13 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   color: var(--color-ink-soft);
   letter-spacing: 0.05em;
 }
+.point-item__desc strong {
+  font-weight: 600;
+  color: var(--color-ink);
+  background: linear-gradient(transparent 70%, rgba(194,104,60,0.18) 70%);
+  padding: 0 1px;
+}
+.point-item__desc p + p { margin-top: 1em; }
 
 @media (max-width: 768px) {
   .point-item,
@@ -1803,7 +1817,10 @@ textarea.form-control {
     padding: 16px 28px;
     font-size: 13px;
     letter-spacing: 0.12em;
+    line-height: 1.55;
   }
+  /* SPでセクションCTAのテキスト2行時のレイアウト調整 */
+  .cta-group .cta > span:last-child { text-align: center; }
   .cta { min-width: 0; }
 }
 </style>
@@ -1863,7 +1880,7 @@ textarea.form-control {
       </div>
       <div class="hero__info">
         <!-- [[PROPERTY]] 開催日時 -->
-        <span class="num">2026.6.20(土)</span>〜<span class="num">7.4(土)</span> <span class="num">10:00</span>〜<span class="num">19:00</span>
+        <span class="num">2026.6.20(土)</span>〜<span class="num">7.5(日)</span> <span class="num">10:00</span>〜<span class="num">19:00</span>
       </div>
       <div class="hero__scroll">
         <span>Scroll</span>
@@ -1920,9 +1937,9 @@ textarea.form-control {
         カタレルハウスとは<span class="kuten">？</span>
       </h2>
       <div class="about-body reveal reveal-delay-2">
-        <p>「建売住宅は、こだわりを語れるポイントが少ない」——そんなイメージがありませんか。CATAREL HOUSE（カタレルハウス）は、違います。</p>
-        <p>不動産のプロが膨大な情報から土地を選び抜き、時代に合わせたデザインと、その街らしいスタイルを軸に、「本当に使いやすい」間取りや設備を凝縮。一棟ごとにテーマ・物語を持って住まいをつくっています。</p>
-        <p>私たちは「建売を選ぶことが妥協ではなく、自信になる」よう——こだわりを “語れる” 住まいを追求し続けています。</p>
+        <p>「建売住宅は、こだわりを語れるポイントが少ない」<br>——そんなイメージがありませんか。<br>CATAREL HOUSE（カタレルハウス）は、違います。</p>
+        <p>不動産のプロが膨大な情報から土地を選び抜き、<br class="pc-only">時代に合わせたデザインと、その街らしいスタイルを軸に<br class="pc-only">「本当に使いやすい」間取りや設備を凝縮。<br>一棟ごとにテーマ・物語を持って住まいをつくっています。</p>
+        <p>私たちは「建売を選ぶことが妥協ではなく、自信になる」よう<br class="pc-only">——こだわりを “語れる” 住まいを追求し続けています。</p>
       </div>
     </div>
 
@@ -2018,7 +2035,9 @@ textarea.form-control {
             <span>Point One</span>
           </div>
           <h3 class="point-item__title">建売住宅とは思えない、<br>唯一無二のPLAN</h3>
-          <p class="point-item__desc">カタレルハウスは、プロジェクトごとに個性を描き、住まいごとに違った表情を持たせています。大人の雰囲気が漂うタイル仕上げのガーデンテラスでは、家族や友人と語らうひとときが日常を少し特別な時間に。間接照明と琉球畳で仕上げた小上がりの和空間は、落ち着きと上質さを感じられる心安らぐ場所。さらに、エントランスとリビングから続く土間スペースが、暮らしに遊び心と広がりをプラスします。</p>
+          <p class="point-item__desc">カタレルハウスは、<strong>プロジェクトごとに個性を描き、住まいごとに違った表情</strong>を持たせています。</p>
+          <p class="point-item__desc">大人の雰囲気が漂うタイル仕上げのガーデンテラスでは、家族や友人と語らうひとときが日常を少し特別な時間に。間接照明と琉球畳で仕上げた小上がりの和空間は、落ち着きと上質さを感じられる心安らぐ場所。</p>
+          <p class="point-item__desc">さらに、エントランスとリビングから続く<strong>土間スペース</strong>が、暮らしに遊び心と広がりをプラスします。</p>
         </div>
       </article>
 
@@ -2033,7 +2052,9 @@ textarea.form-control {
             <span>Point Two</span>
           </div>
           <h3 class="point-item__title">ライティングレールが彩る<br>リビングダイニング</h3>
-          <p class="point-item__desc">明るさと開放感を大切にした、カタレルハウスのプランニング。リビングには標準仕様でライティングレールを設置しています。位置はカタレルハウスチームが「その先の暮らし」を考えて提案していますが、ライトの位置は自由に変更可能。「光の模様替え」をテーマに、好みの位置にさまざまなペンダントライトを設置できる、遊びのあるご提案です。</p>
+          <p class="point-item__desc">明るさと開放感を大切にした、カタレルハウスのプランニング。リビングには<strong>標準仕様でライティングレール</strong>を設置しています。</p>
+          <p class="point-item__desc">位置はカタレルハウスチームが「その先の暮らし」を考えて提案していますが、ライトの位置は自由に変更可能。</p>
+          <p class="point-item__desc"><strong>「光の模様替え」</strong>をテーマに、好みの位置にさまざまなペンダントライトを設置できる、遊びのあるご提案です。</p>
         </div>
       </article>
 
@@ -2048,7 +2069,9 @@ textarea.form-control {
             <span>Point Three</span>
           </div>
           <h3 class="point-item__title">アクセントクロスで創る<br>空間美</h3>
-          <p class="point-item__desc">カタレルハウスシリーズの特徴の一つが、絶妙なアクセントクロスの使い方。第一印象を決めるエントランスにネイビーのアクセントで高級感を演出したり、リビングの一部に取り入れて空間に奥行きをプラスしたり。洗面スペースでは、壁や天井のクロスを切り替えることで、毎日使う場所を少し特別な空間に。少しの工夫で、こんなに雰囲気が変わる。ぜひモデルハウスにてご体感ください。</p>
+          <p class="point-item__desc">カタレルハウスシリーズの特徴の一つが、<strong>絶妙なアクセントクロスの使い方</strong>。</p>
+          <p class="point-item__desc">第一印象を決めるエントランスにネイビーのアクセントで高級感を演出したり、リビングの一部に取り入れて空間に奥行きをプラスしたり。洗面スペースでは、壁や天井のクロスを切り替えることで、毎日使う場所を少し特別な空間に。</p>
+          <p class="point-item__desc"><strong>少しの工夫で、こんなに雰囲気が変わる。</strong>ぜひモデルハウスにてご体感ください。</p>
         </div>
       </article>
 
@@ -2071,7 +2094,7 @@ textarea.form-control {
             <path d="M21 11.5c0 4.14-4.03 7.5-9 7.5-1.05 0-2.06-.15-3-.43L4 20l1.2-3.6C3.83 15.07 3 13.36 3 11.5 3 7.36 7.03 4 12 4s9 3.36 9 7.5z" fill="currentColor" fill-opacity="0.15"/>
           </svg>
         </span>
-        <span>LINEで見学可能なモデルハウスの詳細を見る</span>
+        <span>LINEで見学可能な<br class="sp-only">モデルハウスの詳細を見る</span>
       </a>
     </div>
   </div>
@@ -2155,7 +2178,7 @@ textarea.form-control {
     <div class="outline-box reveal">
       <dl class="outline-dl">
         <dt>Date</dt>
-        <dd>2026年6月20日（土）〜 7月4日（土）<span class="small">※定休日：火・水</span></dd>
+        <dd>2026年6月20日（土）〜 7月5日（日）<span class="small">※定休日：火・水</span></dd>
 
         <dt>Time</dt>
         <dd>10:00 〜 19:00</dd>
@@ -2335,10 +2358,9 @@ textarea.form-control {
             <path d="M21 11.5c0 4.14-4.03 7.5-9 7.5-1.05 0-2.06-.15-3-.43L4 20l1.2-3.6C3.83 15.07 3 13.36 3 11.5 3 7.36 7.03 4 12 4s9 3.36 9 7.5z" fill="currentColor" fill-opacity="0.15"/>
           </svg>
         </span>
-        <span>LINEで見学可能なモデルハウスの詳細を見る</span>
+        <span>LINEで見学可能な<br class="sp-only">モデルハウスの詳細を見る</span>
       </a>
     </div>
-    <p class="final-note">※お問い合わせから24時間以内に担当者よりご連絡いたします</p>
   </div>
 </section>
 

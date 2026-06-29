@@ -218,12 +218,13 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .hero__eyebrow {
   font-family: var(--font-mincho);
   font-weight: 400;
-  font-size: clamp(20px, 2.9vw, 31px);
+  font-size: clamp(16px, 2.2vw, 24px);
   letter-spacing: 0.14em;
   color: rgba(255,255,255,0.95);
   text-shadow:
-    0 2px 8px rgba(40, 40, 40, 0.55),
-    0 4px 24px rgba(0, 0, 0, 0.45);
+    0 1px 3px rgba(0, 0, 0, 0.75),
+    0 2px 10px rgba(40, 40, 40, 0.65),
+    0 4px 28px rgba(0, 0, 0, 0.55);
   opacity: 0;
   transform: translateY(16px);
   animation: riseUp 1.3s var(--ease) 0.3s forwards;
@@ -245,11 +246,12 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   font-weight: 400;
   font-size: clamp(20px, 2.9vw, 31px);
   letter-spacing: 0.14em;
-  margin-bottom: clamp(10px, 1.5vw, 16px);
+  margin-bottom: clamp(4px, 0.8vw, 8px);
   color: rgba(255,255,255,0.95);
   text-shadow:
-    0 2px 8px rgba(40, 40, 40, 0.55),
-    0 4px 24px rgba(0, 0, 0, 0.45);
+    0 1px 3px rgba(0, 0, 0, 0.75),
+    0 2px 10px rgba(40, 40, 40, 0.65),
+    0 4px 28px rgba(0, 0, 0, 0.55);
 }
 .hero__title-main {
   display: block;
@@ -257,8 +259,9 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   letter-spacing: 0.14em;
   padding-left: 0.14em;
   text-shadow:
-    0 2px 10px rgba(40, 40, 40, 0.6),
-    0 6px 32px rgba(0, 0, 0, 0.5);
+    0 2px 6px rgba(0, 0, 0, 0.7),
+    0 4px 16px rgba(40, 40, 40, 0.65),
+    0 8px 36px rgba(0, 0, 0, 0.55);
 }
 
 /* --- 下部：バッジ + 日時 + スクロール --- */
@@ -352,8 +355,8 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 @media (max-width: 768px) {
   .hero { min-height: 90vh; min-height: 90svh; }
   .hero__content { min-height: 90vh; min-height: 90svh; padding: 32px var(--gutter) 28px; }
-  .hero__main { gap: 20px; padding: 16px 0; }
-  .hero__eyebrow { font-size: clamp(17px, 4.6vw, 23px); letter-spacing: 0.1em; }
+  .hero__main { gap: 6px; padding: 16px 0; }
+  .hero__eyebrow { font-size: clamp(14px, 3.8vw, 19px); letter-spacing: 0.1em; }
   .hero__title-sub { font-size: clamp(17px, 4.6vw, 23px); letter-spacing: 0.1em; }
   .hero__title-main { font-size: clamp(30px, 7.8vw, 52px); letter-spacing: 0.08em; padding-left: 0.08em; }
   .hero__badge { padding: 11px 22px; font-size: 11px; letter-spacing: 0.12em; }
